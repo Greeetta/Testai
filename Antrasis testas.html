@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funkcijos</title>
+  </head>
+  <body>
+    <script>
+
+console.log('_________________Pirma uzd_______________________');
+let atsitiktinisEur= Math.floor(Math.random() * 1000) + 1;
+
+function konvertavimasEur(atsitiktinisEur) {
+    let kursas = 1.14; 
+    let usd = atsitiktinisEur * kursas;
+      return usd;
+}
+
+let usd = konvertavimasEur(atsitiktinisEur);
+console.log(atsitiktinisEur + " EUR = " + usd + " USD");
+
+
+console.log('_________________Antra uzd_______________________');
+
+let atsitiktinisUsd= Math.floor(Math.random() * 1000) + 1;
+function konvertavimasUsd(atsitiktinisUsd) {
+    let kursas = 0.88; 
+    let eur = atsitiktinisUsd * kursas;
+      return eur;
+}
+
+
+let eur = konvertavimasUsd(atsitiktinisUsd);
+console.log(atsitiktinisUsd + " USD = " + eur + " EUR ");
+
+console.log('_________________Trecia uzd_______________________');
+let svoris = 80;
+let ugis = 1.8;
+
+function BMI(svoris, ugis) {
+  let bmi = svoris / (ugis * ugis);
+  return bmi;
+}
+
+let bmi = BMI(svoris, ugis);
+
+console.log("Jūsų BMI: " + bmi);
+if (bmi > 25) {
+  console.log("Jūs turite viršsvorį.");
+} else if (bmi >= 18.5 && bmi < 25) {
+  console.log("Jūsų svoris yra normalus.");
+} else {
+  console.log("Jūsų svoris yra per mažas.");
+}
+console.log('_________________Ketvirta uzd_______________________');
+let x=21;
+
+let dienos = x * 365; 
+let valandos = dienos * 24;
+let minutes = valandos * 60;
+let sekundes = minutes * 60;
+
+console.log("Amžius metais: " + x);
+console.log("Tai yra apie " + dienos + " dienų");
+console.log("Tai yra apie " + valandos + " valandų");
+console.log("Tai yra apie " + minutes + " minučių");
+console.log("Tai yra apie " + sekundes + " sekundžių");
+
+console.log('_________________Penkta uzd_______________________');
+let f= Math.floor(Math.random() * 100) + 1;
+let c= Math.floor(Math.random() * 100) + 1;
+
+
+function fIC(f) {
+  let c = (f - 32)/1800;
+  return c;
+}
+
+function cIF(c) {
+  let f = (c * 1800) + 32;
+  return f;
+}
+
+let celsijus = fIC(f);
+let farenheitas = cIF(c);
+
+console.log(f + "°F = " + c.toFixed(2) + "°C");
+console.log(c + "°C = " + f.toFixed(2) + "°F");
+
+console.log('_________________Sesta uzd_______________________');
+let eilute = "";
+
+for (let i = 1; i <= 10; i++) {
+eilute += i;
+if (i < 10) {
+eilute += "-";
+}
+}
+console.log(eilute);
+
+console.log('_________________Septinta uzd_______________________');
+for (let i = 1; i <= 5; i++) {
+  let eilute = "";
+  for (let j = 1; j <= i; j++) {
+    eilute += "*";
+  }
+  console.log(eilute);
+}
+
+console.log('_________________Astunta uzd_______________________');
+let siandien = new Date();
+let kaledos = new Date(siandien.getFullYear(), 11, 25);
+
+if (siandien > kaledos) {
+  kaledos.setFullYear(kaledos.getFullYear() + 1);
+}
+let truksta = kaledos - siandien;
+
+let dienosIkiKaledu = Math.ceil(truksta/ (1000 * 60 * 60 * 24));
+
+console.log("Iki Kalėdų liko " + dienosIkiKaledu + " dienos.");
+
+
+console.log('_________________Devinta uzd_______________________');
+let vardai = ["Tomas", "Dainius", "Paulius", "Jonas"];
+
+let kableliai = vardai.join(",");
+
+let pliusai  = vardai.join("+");
+
+console.log(kableliai);
+console.log(pliusai);
+
+console.log('_________________Desimta uzd_______________________');
+
+function sugeneruotasSlaptazodis() {
+  const didziosiosRaides = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const mazosiosRaides = "abcdefghijklmnopqrstuvwxyz";
+  const skaiciai = "0123456789";
+  const specialusSimboliai = "!@#$%^&*()_-+=<>?";
+
+  let slaptažodis = "";
+  slaptažodis += didziosiosRaides.charAt(Math.floor(Math.random() * didziosiosRaides.length));
+  slaptažodis += mazosiosRaides.charAt(Math.floor(Math.random() * mazosiosRaides.length));
+  slaptažodis += skaiciai.charAt(Math.floor(Math.random() * skaiciai.length));
+  slaptažodis += specialusSimboliai.charAt(Math.floor(Math.random() * specialusSimboliai.length));
+
+  const visiSimboliai = didziosiosRaides + mazosiosRaides + skaiciai + specialusSimboliai;
+  for (let i = slaptažodis.length; i < 12; i++) {
+    slaptažodis += visiSimboliai.charAt(Math.floor(Math.random() * visiSimboliai.length));
+  }
+
+  slaptažodis = slaptažodis.split('').sort(() => Math.random() - 0.5).join('');
+
+  return slaptažodis;
+}
+
+let slaptažodis = sugeneruotasSlaptazodis();
+console.log(slaptažodis);
+
+
+
+    </script>
+  <body>
